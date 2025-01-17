@@ -1,3 +1,3 @@
-<h1>Challenge Amigo secreo</h1>
+<h1>Challenge Secret Friend</h1>
 
-- En construccion
+- Construction

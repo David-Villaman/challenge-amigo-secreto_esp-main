@@ -6,17 +6,28 @@ Visualizar la lista: Los nombres ingresados aparecerán en una lista debajo del 
 Sorteo aleatorio: Al hacer clic en el botón "Sortear Amigo", se seleccionará aleatoriamente un nombre de la lista y se mostrará en la página.
 */
 
+const friends = [];
+
 function addFriend() {
   const friendName = document.getElementById('friendName').value;
   if (friendName === '') {
-    alert('Por favor, ingrese un nombre válido.');
+    alert('Please add a valid name.');
     return;
   }
-  const list = document.getElementById('friendsList');
-  const listItem = document.createElement('li');
-  listItem.appendChild(document.createTextNode(friendName));
-  list.appendChild(listItem);
+  
+  friends.push(friendName);
+  updateFriendsList();
   document.getElementById('friendName').value = '';
+}
+
+function updateFriendsList() {
+  const list = document.getElementById('friendsList');
+  list.innerHTML = '';
+  friends.forEach(friend => {
+    const listItem = document.createElement('li');
+    listItem.appendChild(document.createTextNode(friend));
+    list.appendChild(listItem);
+  });
 }
 
 function drawFriend() {
